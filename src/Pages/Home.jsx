@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback, memo } from "react"
+import { useState, useEffect, useCallback, memo } from "react"
 import { Helmet } from "react-helmet-async"
 import { Github, Linkedin, Mail, ExternalLink, Instagram, Sparkles } from "lucide-react"
 import AOS from 'aos'
@@ -17,6 +17,7 @@ const StatusBadge = memo(() => (
     </div>
   </div>
 ));
+StatusBadge.displayName = 'StatusBadge';
 
 const MainTitle = memo(() => (
   <div className="space-y-2" data-aos="fade-up" data-aos-delay="600">
@@ -24,25 +25,27 @@ const MainTitle = memo(() => (
       <span className="relative inline-block">
         <span className="absolute -inset-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
         <span className="relative bg-gradient-to-r from-white via-blue-100 to-purple-200 bg-clip-text text-transparent">
-          Frontend
+          Data
         </span>
       </span>
       <br />
       <span className="relative inline-block mt-2">
         <span className="absolute -inset-2 bg-gradient-to-r from-[#6366f1] to-[#a855f7] blur-2xl opacity-20"></span>
         <span className="relative bg-gradient-to-r from-[#6366f1] to-[#a855f7] bg-clip-text text-transparent">
-          Developer
+          Analyst
         </span>
       </span>
     </h1>
   </div>
 ));
+MainTitle.displayName = 'MainTitle';
 
 const TechStack = memo(({ tech }) => (
   <div className="px-4 py-2 hidden sm:block rounded-full bg-white/5 backdrop-blur-sm border border-white/10 text-sm text-gray-300 hover:bg-white/10 transition-colors">
     {tech}
   </div>
 ));
+TechStack.displayName = 'TechStack';
 
 const CTAButton = memo(({ href, text, icon: Icon }) => (
   <a href={href}>
@@ -60,6 +63,7 @@ const CTAButton = memo(({ href, text, icon: Icon }) => (
     </button>
   </a>
 ));
+CTAButton.displayName = 'CTAButton';
 
 const SocialLink = memo(({ icon: Icon, link, label }) => (
   <a href={link} target="_blank" rel="noopener noreferrer" aria-label={label}>
@@ -72,16 +76,17 @@ const SocialLink = memo(({ icon: Icon, link, label }) => (
     </button>
   </a>
 ));
+SocialLink.displayName = 'SocialLink';
 
 const TYPING_SPEED = 100;
 const ERASING_SPEED = 50;
 const PAUSE_DURATION = 2000;
-const WORDS = ["Network & Telecom Student", "Tech Enthusiast"];
-const TECH_STACK = ["React", "Javascript", "Node.js", "Tailwind"];
+const WORDS = ["Analytics Enthusiast", "Data-Driven Problem Solver"];
+const TECH_STACK = ["SQL", "Python", "Excel", "Power BI", "Machine Learning"];
 const SOCIAL_LINKS = [
-  { icon: Github, link: "https://github.com/EkiZR", label: "GitHub Profile" },
-  { icon: Linkedin, link: "https://www.linkedin.com/in/ekizr/", label: "LinkedIn Profile" },
-  { icon: Instagram, link: "https://www.instagram.com/ekizr_/?hl=id", label: "Instagram Profile" }
+  { icon: Github, link: "https://github.com/DarmawanWisnu", label: "GitHub Profile" },
+  { icon: Linkedin, link: "https://www.linkedin.com/in/darmawanwisnu/", label: "LinkedIn Profile" },
+  { icon: Instagram, link: "https://www.instagram.com/wsndarma/?hl=id", label: "Instagram Profile" }
 ];
 
 const Home = () => {
@@ -135,30 +140,30 @@ const Home = () => {
       isTyping ? TYPING_SPEED : ERASING_SPEED
     );
     return () => clearTimeout(timeout);
-  }, [handleTyping]);
+  }, [handleTyping, isTyping]);
 
   return (
     <>
       <Helmet>
-        <title>Eki Zulfar Rachman — Frontend Web Developer</title>
-        <meta name="description" content="Website resmi Eki Zulfar Rachman, Front-End Web Developer. Saya berfokus pada penciptaan pengalaman digital yang menarik dan selalu berupaya memberikan solusi terbaik dalam setiap proyek yang saya kerjakan." />
-     <meta name="robots" content="index, follow" />
-        <link rel="canonical" href="https://ekizr.com" />
-        <meta property="og:title" content="Eki Zulfar Rachman — Frontend Web Developer" />
-     <meta property="og:description" content="Website resmi dan portofolio Eki Zulfar Rachman, Front-End Web Developer." />
-        <meta property="og:url" content="https://ekizr.com" />
+        <title>Wisnu Darmawan — Data Analyst</title>
+        <meta name="description" content="Website resmi Wisnu Darmawan, Data Analyst & Analytics Enthusiast. Berfokus pada pengolahan data, visualisasi, dan solusi berbasis data." />
+        <meta name="robots" content="index, follow" />
+        <link rel="canonical" href="https://wisnu.com" />
+        <meta property="og:title" content="Wisnu Darmawan — Data Analyst" />
+        <meta property="og:description" content="Website resmi dan portofolio Wisnu Darmawan, Data Analyst." />
+        <meta property="og:url" content="https://wisnu.com" />
         <meta property="og:type" content="website" />
         <script type="application/ld+json">{`
           {
             "@context": "https://schema.org",
             "@type": "Person",
-            "name": "Eki Zulfar Rachman",
-            "jobTitle": "Frontend Developer",
-            "url": "https://ekizr.com",
+            "name": "Wisnu Darmawan",
+            "jobTitle": "Data Analyst",
+            "url": "https://wisnu.com",
             "sameAs": [
-              "https://github.com/EkiZR",
-              "https://www.linkedin.com/in/ekizr/",
-              "https://www.instagram.com/ekizr_/"
+              "https://github.com/DarmawanWisnu",
+              "https://www.linkedin.com/in/darmawanwisnu/",
+              "https://www.instagram.com/wsndarma/"
             ]
           }
         `}</script>
@@ -188,7 +193,7 @@ const Home = () => {
                   <p className="text-base md:text-lg text-gray-400 max-w-xl leading-relaxed font-light"
                     data-aos="fade-up"
                     data-aos-delay="1000">
-                    Menciptakan Website Yang Inovatif, Fungsional, dan User-Friendly untuk Solusi Digital.
+                    Menciptakan Insight yang Akurat, Bermakna, dan Mudah Dipahami untuk Mendukung Pengambilan Keputusan.
                   </p>
 
                   {/* Tech Stack */}
