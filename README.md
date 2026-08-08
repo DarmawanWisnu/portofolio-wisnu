@@ -1,34 +1,24 @@
-# Portfolio V5
-
-Hello everyone\! 👋
-
-Let me introduce myself, I'm **Eki Zulfar Rachman**. On this occasion, I'd like to share the portfolio website project that I've developed. built with React and Supabase, featuring a public-facing site and an admin dashboard.
-
-**Live Demo:** [https://ekizr.com](https://ekizr.com)
-
----
-
 ## 🛠️ Tech Stack
 
 This project is built using modern web technologies:
 
-  - **ReactJS** - Frontend framework
-  - **Tailwind CSS** - Utility-first CSS framework
-  - **Supabase** - Backend for portfolio data, certificates, and comment system
-  - **AOS** - Animate On Scroll library
-  - **Framer Motion** - Animation library
-  - **Lucide** - Icon library
-  - **Material UI** - React component library
-  - **SweetAlert2** - Beautiful alert dialogs
+- **ReactJS** - Frontend framework
+- **Tailwind CSS** - Utility-first CSS framework
+- **Supabase** - Backend for portfolio data, certificates, and comment system
+- **AOS** - Animate On Scroll library
+- **Framer Motion** - Animation library
+- **Lucide** - Icon library
+- **Material UI** - React component library
+- **SweetAlert2** - Beautiful alert dialogs
 
 ---
 
 ## User Roles
 
-| Role | Access |
-|---|---|
-| **Visitor (Public)** | View projects, certificates, and comments — leave a comment |
-| **Admin** | Login to dashboard — full CRUD on projects & certificates — delete & pin/unpin comments |
+| Role                 | Access                                                                                  |
+| -------------------- | --------------------------------------------------------------------------------------- |
+| **Visitor (Public)** | View projects, certificates, and comments — leave a comment                             |
+| **Admin**            | Login to dashboard — full CRUD on projects & certificates — delete & pin/unpin comments |
 
 ---
 
@@ -42,8 +32,8 @@ This project is built using modern web technologies:
 ### 1. Clone & Install
 
 ```bash
-git clone https://github.com/EkiZR/Portofolio_V5.git
-cd Portofolio_V5
+git clone https://github.com/DarmawanWisnu/portofolio.git
+cd portofolio
 npm install
 ```
 
@@ -64,16 +54,16 @@ VITE_SUPABASE_ANON_KEY=your-supabase-anon-key
 ### 3. Supabase Client (`src/supabase.js`)
 
 ```javascript
-import { createClient } from '@supabase/supabase-js'
+import { createClient } from "@supabase/supabase-js";
 
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL
-const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY
+const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
+const supabaseKey = import.meta.env.VITE_SUPABASE_ANON_KEY;
 
 if (!supabaseUrl || !supabaseKey) {
-  throw new Error('Supabase credentials missing. Check your .env file.')
+  throw new Error("Supabase credentials missing. Check your .env file.");
 }
 
-export const supabase = createClient(supabaseUrl, supabaseKey)
+export const supabase = createClient(supabaseUrl, supabaseKey);
 ```
 
 ### 4. Database Setup
@@ -240,14 +230,12 @@ USING (bucket_id = 'profile-images');
 INSERT INTO public.portfolio_comments (
   content,
   user_name,
-  profile_image,
   is_pinned,
   created_at
 )
 SELECT
-  'developed by ekizr. This project is open-source and free to use.',
-  'ekizr',
-  'https://egwzigagwyrmwjsrebzx.supabase.co/storage/v1/object/public/profile-images/profile-images/1771939421615_xx2q8hgya6e.jpeg',
+  'developed by wisnu. This project is open-source and free to use.',
+  'wisnu',
   true,
   now()
 WHERE NOT EXISTS (
@@ -285,12 +273,14 @@ Open `http://localhost:5173` in your browser.
 ## Pages & Features
 
 ### Public (Visitor)
+
 - **Home** — Hero section, about, skills
 - **Projects** — List of published projects with detail modal
 - **Certificates** — Certificate gallery
 - **Comments** — View all comments, submit a new comment with name and optional profile photo
 
 ### Admin (Dashboard)
+
 - **Login Page** — Email & password authentication via Supabase Auth
 - **Dashboard** — Overview panel after login
 - **Projects** — Create, edit, delete projects; manage image, links, features, tech stack, publish status, and order
@@ -308,12 +298,5 @@ npm run build
 Upload the contents of the `dist/` folder to your hosting provider.
 
 ---
-
-## Credits & Contact
-
-**Eki Zulfar Rachman**  
-Website: [eki.my.id](https://ekizr.com) · GitHub: [EkiZR](https://github.com/EkiZR)
-
-Thanks to [LottieFiles](https://lottiefiles.com/free-animation/coding-NWhbxMOVgP) and Claude.
 
 ⭐ If this project helped you, consider giving it a star on GitHub!
